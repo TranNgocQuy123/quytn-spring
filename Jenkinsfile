@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     tools { 
-        maven 'my-maven' 
+        maven 'maven' 
     }
     environment {
         MYSQL_ROOT_LOGIN = credentials('mysql-root-login')
@@ -22,8 +22,8 @@ pipeline {
 
             steps {
                 withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
-                    sh 'docker build -t khaliddinh/springboot .'
-                    sh 'docker push khaliddinh/springboot'
+                    sh 'docker build -t trangocquy123/springboot .'
+                    sh 'docker push trangocquy123/springboot'
                 }
             }
         }
